@@ -1,0 +1,13 @@
+DROP FUNCTION IF EXISTS divider ;
+
+delimiter //
+CREATE FUNCTION divider (quantity float, divider float)
+RETURNS float
+DETERMINISTIC
+NO SQL
+BEGIN
+	RETURN quantity / divider; 
+end //
+
+DELIMITER ;
+select *, divider(quantity, .32) as fn from order_detailsdivider

@@ -1,0 +1,5 @@
+use mydb;
+
+select order_id, avg(quantity) as "AVG Quantity" 
+from (select * from order_details where quantity > 10) as temp_table
+group by order_id;
